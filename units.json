@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Gojo",
+    "rarity": "Mythic",
+    "type": "Ground",
+    "image": "https://link-da-imagem-da-wiki/gojo.png",
+    "damage": "1200",
+    "cooldown": "5s",
+    "wiki": "https://animevanguards.fandom.com/wiki/Gojo"
+  }
+]
