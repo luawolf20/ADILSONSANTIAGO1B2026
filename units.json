@@ -1,11 +1,22 @@
 [
   {
+    "id": "gojo",
     "name": "Gojo",
     "rarity": "Mythic",
     "type": "Ground",
-    "image": "https://link-da-imagem-da-wiki/gojo.png",
-    "damage": "1200",
+    "damage": 1200,
     "cooldown": "5s",
-    "wiki": "https://animevanguards.fandom.com/wiki/Gojo"
+    "image": "images/gojo.png",
+    "wiki": "unit.html?id=gojo"
+  },
+  {
+    "id": "jinwoo",
+    "name": "Jin Woo",
+    "rarity": "Mythic",
+    "type": "Air",
+    "damage": 1500,
+    "cooldown": "6s",
+    "image": "images/jinwoo.png",
+    "wiki": "unit.html?id=jinwoo"
   }
 ]

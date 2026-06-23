@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Unit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="content"></div>
+
+<script>
+const id = new URLSearchParams(location.search).get("id");
+
+fetch("data/units.json")
+.then(r => r.json())
+.then(data => {
+
+    const u = data.find(x => x.id === id);
+
+    document.getElementById("content").innerHTML = `
+        <h1>${u.name}</h1>
+        <img src="${u.image}" style="width:300px;border-radius:12px">
+
+        <p>Raridade: ${u.rarity}</p>
+        <p>Tipo: ${u.type}</p>
+        <p>Dano: ${u.damage}</p>
+        <p>Cooldown: ${u.cooldown}</p>
+
+        <h3>Evolução</h3>
+        <p>Base → Evo 1 → Evo 2 (sistema futuro)</p>
+
+        <a href="index.html">← voltar</a>
+    `;
+});
+</script>
+
+</body>
+</html>
