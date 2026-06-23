@@ -2,32 +2,281 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Anime Vanguards Wiki</title>
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#050505;
+    --panel:#0d0d0d;
+    --purple:#8A2BE2;
+    --purple2:#A855F7;
+    --purple3:#C084FC;
+    --gray:#aaa;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Poppins;
+    background:var(--bg);
+    color:white;
+}
+
+/* BACKGROUND NEON */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%, #8A2BE233, transparent 40%),
+    radial-gradient(circle at 80% 40%, #A855F733, transparent 40%),
+    radial-gradient(circle at 50% 90%, #C084FC22, transparent 40%);
+    z-index:-1;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #8A2BE2;
+    padding:15px;
+    text-align:center;
+}
+
+header h1{
+    font-family:Orbitron;
+    color:var(--purple3);
+    letter-spacing:2px;
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+nav button{
+    background:#111;
+    border:1px solid #8A2BE2;
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+nav button:hover{
+    box-shadow:0 0 15px #8A2BE2;
+}
+
+/* SEARCH */
+.search-box{
+    text-align:center;
+    margin:20px;
+}
+
+input{
+    padding:12px;
+    width:300px;
+    max-width:90%;
+    border-radius:10px;
+    border:1px solid #8A2BE2;
+    background:#111;
+    color:white;
+}
+
+/* SECTIONS */
+.section{
+    display:none;
+    padding:30px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.active{
+    display:block;
+}
+
+.title{
+    font-family:Orbitron;
+    color:var(--purple3);
+    text-align:center;
+    margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,.04);
+    border:1px solid #8A2BE2;
+    border-radius:12px;
+    padding:12px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px #8A2BE2;
+}
+
+/* TIER LIST */
+.tier{
+    display:grid;
+    gap:10px;
+}
+
+.tier div{
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.splus{background:#ff0066;}
+.s{background:#ff4d00;}
+.a{background:#b84dff;}
+.b{background:#6d28d9;}
+.c{background:#333;}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+    border-top:1px solid #222;
+}
+</style>
 </head>
 
 <body>
 
 <header>
     <h1>ANIME VANGUARDS WIKI</h1>
+
+    <nav>
+        <button onclick="show('units')">Units</button>
+        <button onclick="show('tier')">Tier List</button>
+        <button onclick="show('familiars')">Familiars</button>
+        <button onclick="show('vanguards')">Vanguards</button>
+    </nav>
 </header>
 
-<section class="controls">
+<div class="search-box">
+    <input id="search" placeholder="Pesquisar...">
+</div>
 
-    <input id="search" placeholder="Pesquisar unidade...">
-
-    <select id="filter">
-        <option value="all">Todas raridades</option>
-        <option value="Mythic">Mythic</option>
-        <option value="Legendary">Legendary</option>
-        <option value="Epic">Epic</option>
-        <option value="Rare">Rare</option>
-    </select>
-
+<!-- UNITS -->
+<section id="units" class="section active">
+    <h2 class="title">Units</h2>
+    <div id="grid" class="grid"></div>
 </section>
 
-<section class="grid" id="grid"></section>
+<!-- TIER LIST -->
+<section id="tier" class="section">
+    <h2 class="title">Tier List</h2>
 
-<script src="script.js"></script>
+    <div class="tier">
+        <div class="splus">S+ Tier — Meta Units</div>
+        <div class="s">S Tier — Strong Units</div>
+        <div class="a">A Tier — Good Units</div>
+        <div class="b">B Tier — Average Units</div>
+        <div class="c">C Tier — Weak Units</div>
+    </div>
+</section>
+
+<!-- FAMILIARS -->
+<section id="familiars" class="section">
+    <h2 class="title">Familiars</h2>
+
+    <div class="grid">
+        <div class="card">Fire Familiar</div>
+        <div class="card">Ice Familiar</div>
+        <div class="card">Shadow Familiar</div>
+    </div>
+</section>
+
+<!-- VANGUARDS -->
+<section id="vanguards" class="section">
+    <h2 class="title">Vanguards</h2>
+
+    <div class="grid">
+        <div class="card">Vanguard Mode System</div>
+        <div class="card">Advanced Units Buff</div>
+        <div class="card">Special Evolutions</div>
+    </div>
+</section>
+
+<footer>
+    © Anime Vanguards Wiki Fan Project
+</footer>
+
+<script>
+/* =========================
+   DADOS
+========================= */
+const units = [
+    {name:"Gojo", rarity:"Mythic"},
+    {name:"Jin Woo", rarity:"Mythic"},
+    {name:"Alucard", rarity:"Legendary"},
+    {name:"Naruto", rarity:"Epic"}
+];
+
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
+
+/* RENDER UNITS */
+function render(list){
+    grid.innerHTML = "";
+
+    list.forEach(u => {
+        grid.innerHTML += `
+        <div class="card">
+            <h3>${u.name}</h3>
+            <p>${u.rarity}</p>
+        </div>
+        `;
+    });
+}
+
+render(units);
+
+/* SEARCH */
+search.addEventListener("input", () => {
+    const text = search.value.toLowerCase();
+
+    const filtered = units.filter(u =>
+        u.name.toLowerCase().includes(text)
+    );
+
+    render(filtered);
+});
+
+/* NAV SYSTEM */
+function show(id){
+    document.querySelectorAll(".section")
+    .forEach(s => s.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
 </body>
 </html>
