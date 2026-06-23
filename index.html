@@ -390,6 +390,80 @@ window.addEventListener('scroll', () => {
     });
 });
 </script>
+<div id="units-grid" class="grid"></div>
+<script>
+let allUnits = [];
 
+fetch("data/units.json")
+.then(r => r.json())
+.then(units => {
+
+    allUnits = units;
+
+    renderUnits(units);
+
+    document
+    .getElementById("search")
+    .addEventListener("input", e => {
+
+        const query = e.target.value
+        .toLowerCase()
+        .trim();
+
+        const filtered = allUnits.filter(unit =>
+            unit.name.toLowerCase().includes(query)
+        );
+
+        renderUnits(filtered);
+
+    });
+
+});
+
+function renderUnits(units){
+
+    const grid = document.getElementById("units-grid");
+
+    grid.innerHTML = "";
+
+    units.forEach(unit => {
+
+        const card = document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+            <img
+                src="${unit.image}"
+                class="unit-img"
+                alt="${unit.name}"
+            >
+
+            <h3>${unit.name}</h3>
+
+            <p>${unit.rarity || ""}</p>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+</script>
+card.innerHTML = `
+    <img src="${unit.image}" class="unit-img">
+
+    <h3>${unit.name}</h3>
+
+    <p>Raridade: ${unit.rarity}</p>
+
+    <a
+      href="${unit.wiki}"
+      target="_blank"
+      class="btn"
+    >
+      Ver Wiki
+    </a>
+`;
 </body>
 </html>
