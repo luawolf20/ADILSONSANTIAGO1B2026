@@ -14,7 +14,6 @@
     --purple:#8A2BE2;
     --purple2:#A855F7;
     --purple3:#C084FC;
-    --white:#ffffff;
 }
 
 *{
@@ -30,6 +29,7 @@ body{
     overflow-x:hidden;
 }
 
+/* fundo neon */
 body::before{
     content:"";
     position:fixed;
@@ -41,6 +41,7 @@ body::before{
     z-index:-1;
 }
 
+/* HEADER */
 header{
     position:fixed;
     top:0;
@@ -61,334 +62,274 @@ header{
 }
 
 .logo{
-    font-family:'Orbitron',sans-serif;
-    font-size:1.4rem;
-    font-weight:900;
+    font-family:'Orbitron';
     color:var(--purple3);
+    font-weight:900;
     text-shadow:0 0 15px var(--purple);
 }
 
-.nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
-}
-
-.nav a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.nav a:hover{
-    color:var(--purple3);
-    text-shadow:0 0 12px var(--purple);
-}
-
+/* HERO */
 .hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    padding:140px 20px 60px;
     text-align:center;
-    padding:100px 20px;
 }
 
-.hero-content h1{
+.hero h1{
     font-family:'Orbitron';
-    font-size:4rem;
-    color:white;
-    text-shadow:
-        0 0 10px var(--purple),
-        0 0 30px var(--purple),
-        0 0 60px var(--purple);
+    font-size:3.5rem;
+    text-shadow:0 0 20px var(--purple);
 }
 
-.hero-content p{
-    margin-top:15px;
-    color:#ccc;
-    font-size:1.1rem;
+.hero p{
+    color:#bbb;
+    margin-top:10px;
 }
 
-.search-box{
-    margin-top:30px;
+.search{
+    margin-top:25px;
 }
 
-.search-box input{
-    width:320px;
+.search input{
+    width:350px;
     max-width:90%;
     padding:15px;
-    border:none;
     border-radius:12px;
+    border:1px solid rgba(138,43,226,.4);
     background:#111;
     color:white;
     outline:none;
+}
+
+/* FILTRO */
+.filter{
+    margin-top:15px;
+}
+
+select{
+    padding:10px;
+    border-radius:10px;
+    background:#111;
+    color:white;
     border:1px solid rgba(138,43,226,.4);
 }
 
-.btn{
-    margin-top:20px;
-    display:inline-block;
-    padding:14px 30px;
-    border-radius:12px;
-    background:var(--purple);
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 0 20px var(--purple);
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 35px var(--purple2);
-}
-
+/* GRID */
 .section{
-    padding:90px 20px;
     max-width:1400px;
     margin:auto;
+    padding:40px 20px;
 }
 
 .title{
-    font-family:'Orbitron';
-    font-size:2rem;
-    margin-bottom:40px;
     text-align:center;
+    font-family:'Orbitron';
     color:var(--purple3);
+    margin-bottom:30px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
+/* CARD */
 .card{
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.05);
     border:1px solid rgba(138,43,226,.3);
-    border-radius:18px;
-    padding:25px;
+    border-radius:15px;
+    padding:15px;
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(138,43,226,.6);
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(138,43,226,.5);
 }
 
-.card h3{
-    color:var(--purple3);
-    margin-bottom:10px;
-}
-
-.unit-img{
+.card img{
     width:100%;
-    height:220px;
-    border-radius:12px;
+    height:180px;
     object-fit:cover;
-    margin-bottom:15px;
+    border-radius:10px;
 }
 
+.rarity{
+    margin-top:8px;
+    font-size:12px;
+    color:#aaa;
+}
+
+/* TIER */
 .tier{
     display:grid;
-    gap:15px;
+    gap:10px;
 }
 
-.tier-row{
-    display:flex;
-    align-items:center;
+.tier div{
     padding:15px;
-    border-radius:12px;
-    font-weight:600;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-.splus{
-    background:#ff0066;
-}
+.splus{background:#ff0066;}
+.s{background:#ff4d00;}
+.a{background:#b84dff;}
+.b{background:#6d28d9;}
+.c{background:#333;}
 
-.s{
-    background:#ff4d00;
-}
-
-.a{
-    background:#b84dff;
-}
-
-.b{
-    background:#6d28d9;
-}
-
-.c{
-    background:#374151;
-}
-
+/* CÓDIGOS */
 .code{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     background:#111;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:15px;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:10px;
 }
 
-.copy-btn{
+button{
     background:var(--purple);
     border:none;
-    color:white;
-    padding:8px 15px;
+    padding:8px 12px;
     border-radius:8px;
+    color:white;
     cursor:pointer;
 }
 
+/* FOOTER */
 footer{
     text-align:center;
-    padding:40px;
-    border-top:1px solid rgba(138,43,226,.3);
-    color:#999;
-}
-
-.reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
+    padding:30px;
+    color:#777;
+    border-top:1px solid rgba(138,43,226,.2);
 }
 </style>
 </head>
+
 <body>
 
 <header>
-    <nav class="nav">
+    <div class="nav">
         <div class="logo">ANIME VANGUARDS WIKI</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Unidades</a></li>
-            <li><a href="#">Traits</a></li>
-            <li><a href="#">Tier List</a></li>
-            <li><a href="#">Códigos</a></li>
-            <li><a href="#">Updates</a></li>
-        </ul>
-    </nav>
+    </div>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Anime Vanguards Wiki</h1>
-        <p>Guias, unidades, códigos, evoluções e tier lists atualizadas.</p>
+    <h1>Anime Vanguards Wiki</h1>
+    <p>Unidades, traits, tier list e códigos</p>
 
-        <div class="search-box">
-            <input type="text" placeholder="Pesquisar unidade...">
-        </div>
+    <div class="search">
+        <input id="search" placeholder="Pesquisar unidade...">
+    </div>
 
-        <a href="#" class="btn">Explorar Wiki</a>
+    <div class="filter">
+        <select id="filter">
+            <option value="all">Todas raridades</option>
+            <option value="Mythic">Mythic</option>
+            <option value="Legendary">Legendary</option>
+            <option value="Epic">Epic</option>
+            <option value="Rare">Rare</option>
+        </select>
     </div>
 </section>
 
-<section class="section reveal">
-    <h2 class="title">Categorias</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Unidades</h3>
-            <p>Lista completa de personagens.</p>
-        </div>
-
-        <div class="card">
-            <h3>Traits</h3>
-            <p>Todos os traits e bônus.</p>
-        </div>
-
-        <div class="card">
-            <h3>Evoluções</h3>
-            <p>Rotas e requisitos de evolução.</p>
-        </div>
-
-        <div class="card">
-            <h3>Códigos</h3>
-            <p>Códigos ativos do jogo.</p>
-        </div>
-    </div>
+<section class="section">
+    <h2 class="title">Unidades</h2>
+    <div id="grid" class="grid"></div>
 </section>
 
-<section class="section reveal">
-    <h2 class="title">Unidades Populares</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <img src="https://via.placeholder.com/400x220" class="unit-img">
-            <h3>Gojo</h3>
-            <p>Mythic Unit</p>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/400x220" class="unit-img">
-            <h3>Jin Woo</h3>
-            <p>Secret Unit</p>
-        </div>
-
-        <div class="card">
-            <img src="https://via.placeholder.com/400x220" class="unit-img">
-            <h3>Alucard</h3>
-            <p>Legendary Unit</p>
-        </div>
-
-    </div>
-</section>
-
-<section class="section reveal">
+<section class="section">
     <h2 class="title">Tier List</h2>
-
     <div class="tier">
-        <div class="tier-row splus">S+ Tier</div>
-        <div class="tier-row s">S Tier</div>
-        <div class="tier-row a">A Tier</div>
-        <div class="tier-row b">B Tier</div>
-        <div class="tier-row c">C Tier</div>
+        <div class="splus">S+</div>
+        <div class="s">S</div>
+        <div class="a">A</div>
+        <div class="b">B</div>
+        <div class="c">C</div>
     </div>
 </section>
 
-<section class="section reveal">
-    <h2 class="title">Códigos Ativos</h2>
+<section class="section">
+    <h2 class="title">Códigos</h2>
 
     <div class="code">
-        <span>UPDATE2026</span>
-        <button class="copy-btn" onclick="copyCode('UPDATE2026')">Copiar</button>
+        <span>UPDATE13</span>
+        <button onclick="copy('UPDATE13')">Copiar</button>
     </div>
 
     <div class="code">
-        <span>VANGUARDSFREE</span>
-        <button class="copy-btn" onclick="copyCode('VANGUARDSFREE')">Copiar</button>
+        <span>VANGUARDS2026</span>
+        <button onclick="copy('VANGUARDS2026')">Copiar</button>
     </div>
 </section>
 
 <footer>
-    © 2026 Anime Vanguards Wiki • Fan Wiki
+    © Anime Vanguards Wiki Fan Project
 </footer>
 
 <script>
-function copyCode(code){
-    navigator.clipboard.writeText(code);
-    alert("Código copiado: " + code);
+/* ===== DADOS DAS UNIDADES ===== */
+const units = [
+    {name:"Gojo", rarity:"Mythic", img:"https://via.placeholder.com/300x180"},
+    {name:"Jin Woo", rarity:"Mythic", img:"https://via.placeholder.com/300x180"},
+    {name:"Alucard", rarity:"Legendary", img:"https://via.placeholder.com/300x180"},
+    {name:"Naruto", rarity:"Epic", img:"https://via.placeholder.com/300x180"},
+    {name:"Luffy", rarity:"Epic", img:"https://via.placeholder.com/300x180"}
+];
+
+let filtered = [...units];
+
+const grid = document.getElementById("grid");
+const search = document.getElementById("search");
+const filter = document.getElementById("filter");
+
+/* RENDER */
+function render(list){
+    grid.innerHTML = "";
+
+    list.forEach(u => {
+        grid.innerHTML += `
+        <div class="card">
+            <img src="${u.img}">
+            <h3>${u.name}</h3>
+            <div class="rarity">${u.rarity}</div>
+        </div>
+        `;
+    });
 }
 
-const reveals = document.querySelectorAll('.reveal');
+render(units);
 
-window.addEventListener('scroll', () => {
-    reveals.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            el.classList.add('active');
-        }
-    });
+/* SEARCH */
+search.addEventListener("input", e => {
+    applyFilters();
 });
+
+/* FILTER */
+filter.addEventListener("change", () => {
+    applyFilters();
+});
+
+/* COMBINA PESQUISA + FILTRO */
+function applyFilters(){
+    const text = search.value.toLowerCase();
+    const rarity = filter.value;
+
+    filtered = units.filter(u => {
+        const matchText = u.name.toLowerCase().includes(text);
+        const matchRarity = rarity === "all" || u.rarity === rarity;
+        return matchText && matchRarity;
+    });
+
+    render(filtered);
+}
+
+/* COPY CODE */
+function copy(text){
+    navigator.clipboard.writeText(text);
+    alert("Copiado: " + text);
+}
 </script>
 
 </body>
